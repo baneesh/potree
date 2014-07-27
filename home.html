@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!-- 
+    Smart developers always View Source. 
+    
+    This application was built using Adobe Flex, an open source framework
+    for building rich Internet applications that get delivered via the
+    Flash Player or to desktops via Adobe AIR. 
+    
+    Learn more about Flex at http://flex.org 
+    // -->
+<script type="text/javascript">
+    window.onload = function () {
+        var sender1 = document.getElementById("sender1");
+        sender1.onchange = function () {
+            var ta1 = document.getElementById("sender1");
+            document['externalInterface'].receiveText1(ta1.value);
+        };
+
+        var sender2 = document.getElementById("sender2");
+        sender2.onchange = function () {
+            var ta2 = document.getElementById("sender2");
+            document['externalInterface'].receiveText2(ta2.value);
+        };
+        var sender3 = document.getElementById("sender3");
+        sender3.onchange = function () {
+            var ta3 = document.getElementById("sender3");
+            document['externalInterface'].receiveText3(ta3.value);
+        };
+        var sender4 = document.getElementById("sender4");
+        sender4.onchange = function () {
+            var ta4 = document.getElementById("sender4");
+            document['externalInterface'].receiveText4(ta4.value);
+        };
+        var sender5 = document.getElementById("sender5");
+        sender5.onchange = function () {
+            var ta5 = document.getElementById("sender5");
+            document['externalInterface'].receiveText5(ta5.value);
+        };
+        var sender6 = document.getElementById("sender6");
+        sender6.onchange = function () {
+            var ta6 = document.getElementById("sender6");
+            document['externalInterface'].receiveText6(ta6.value);
+        };
+
+
+    };
+
+</script>
+<head>
+    <title></title>
+    <meta name="google" value="notranslate" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Include CSS to eliminate any default margins/padding and set the height of the html element and 
+             the body element to 100%, because Firefox, or any Gecko based browser, interprets percentage as 
+             the percentage of the height of its parent container, which has to be set explicitly.  Fix for
+             Firefox 3.6 focus border issues.  Initially, don't display flashContent div so it won't show 
+             if JavaScript disabled.
+        -->
+    <style type="text/css" media="screen">
+        html, body
+        {
+            height: 100%;
+        }
+        body
+        {
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+            text-align: center;
+            background-color: #ffffff;
+        }
+        object:focus
+        {
+            outline: none;
+        }
+        #flashContent
+        {
+            display: none;
+        }
+    </style>
+    <!-- Enable Browser History by replacing useBrowserHistory tokens with two hyphens -->
+    <!-- BEGIN Browser History required section -->
+    <link rel="stylesheet" type="text/css" href="history/history.css" />
+    <script type="text/javascript" src="history/history.js"></script>
+    <!-- END Browser History required section -->
+    <script type="text/javascript" src="swfobject.js"></script>
+    <script type="text/javascript">
+        // For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
+        var swfVersionStr = "11.4.0";
+        // To use express install, set to playerProductInstall.swf, otherwise the empty string. 
+        var xiSwfUrlStr = "playerProductInstall.swf";
+        var flashvars = {};
+        var params = {};
+        params.quality = "high";
+        params.bgcolor = "#ffffff";
+        params.allowscriptaccess = "sameDomain";
+        params.allowfullscreen = "true";
+        var attributes = {};
+        attributes.id = "ObjWithTexture";
+        attributes.name = "ObjWithTexture";
+        attributes.align = "middle";
+        attributes.wmode = "direct";
+        swfobject.embedSWF(
+                "ObjWithTexture.swf", "flashContent",
+                "50%", "50%",
+                swfVersionStr, xiSwfUrlStr,
+                flashvars, params, attributes);
+        // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+        swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+    </script>
+</head>
+<body>
+    <!-- SWFObject's dynamic embed method replaces this alternative HTML content with Flash content when enough 
+             JavaScript and Flash plug-in support is available. The div is initially hidden so that it doesn't show
+             when JavaScript is disabled.
+        -->
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="600" height="600"
+        id="externalInterface">
+        <param name="movie" value="ObjWithTexture.swf" />
+        <param name="quality" value="high" />
+        <param name="bgcolor" value="#ffffff" />
+        <param name="allowScriptAccess" value="sameDomain" />
+        <param name="allowFullScreen" value="true" />
+        <param name="wmode" value="direct" />
+        <embed src="ObjWithTexture.swf" quality="high" bgcolor="#ffffff" width="600" height="300"
+            name="externalInterface" wmode="direct" align="middle" allowscriptaccess="sameDomain"
+            allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+    </object>
+    <div id="htmlWrap">
+        <div id="asSend">
+            <select id="sender1" name="sender1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <select id="sender2" name="sender2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <select id="sender3" name="sender3">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <select id="sender4" name="sender4">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <select id="sender5" name="sender5">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <select id="sender6" name="sender6">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </div>
+</body>
+</html>

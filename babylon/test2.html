@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Using babylon.js - How to load a scene</title>
+       <script src="babylon.js"></script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<select onChange="newtexture(this.value);">
+    <option value="red">Red</option>
+    <option value="black">Black</option>
+</select>
+
+    <canvas id="renderCanvas"></canvas>
+    <div id="output">
+    <script src="BagA.js" ></script>
+</div>
+
+<script type="text/javascript">
+function newtexture(title)
+{
+    switch(title)
+    {
+        case "red":
+            var s = document.createElement("script");
+                s.type = "text/javascript";
+                s.src = "BagA.js";
+                s.innerHTML = null;
+                s.id = "widget";
+                document.getElementById("output").innerHTML = "";
+                document.getElementById("output").appendChild(s);
+        break;
+        case "black":
+            var s = document.createElement("script");
+                s.type = "text/javascript";
+                s.src = "second.js";
+                s.innerHTML = null;
+                s.id = "widget";
+                document.getElementById("output").innerHTML = "";
+                document.getElementById("output").appendChild(s);
+        break;
+        default:
+        void(0);
+    }
+}
+</script>
+ </body>
+</html>

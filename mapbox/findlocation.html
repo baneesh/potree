@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>A simple map</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+.ui-button {
+  background:#3887BE;
+  color:#FFF;
+  display:block;
+  position:absolute;
+  top:15%;left:92px;
+  width:180px;
+  margin:-20px 0 0 -80px;
+  z-index:100;
+  text-align:center;
+  padding:10px;
+  border-radius:3px;
+  text-decoration: none;
+  }
+  .ui-button:hover {
+    background:#3074a4;
+    color:#fff;
+    }
+   .leaflet-bottom {display: none;}
+</style>
+
+</head>
+<body>
+<div id='map'></div>
+<a href='javascript:;' id='geolocate' class='ui-button'>Find Your Current Location</a>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiYWJoYXlzaW5naCIsImEiOiJ2RkFHVEpNIn0.7H4aekzifgSCzgfel2mb0w';
+var geolocate = document.getElementById('geolocate');
+var map = L.mapbox.map('map', 'abhaysingh.jbe7pecm')
+    .setView([29, 80], 7);
+
+    var myLayer = L.mapbox.featureLayer().addTo(map);
+if (!navigator.geolocation) {
+    geolocate.innerHTML = 'Geolocation is not available';
+} else {
+    geolocate.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        map.locate();
+    };
+}
+map.on('locationfound', function(e) {
+    map.fitBounds(e.bounds);
+    myLayer.setGeoJSON({
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [e.latlng.lng, e.latlng.lat]
+        },
+        properties: {
+            'title': 'Here You are !',
+            'marker-color': '#ff8888',
+            'marker-symbol': 'star'
+        }
+    });
+    geolocate.parentNode.removeChild(geolocate);
+});
+map.on('locationerror', function() {
+    geolocate.innerHTML = 'Position could not be found';
+});
+</script>
+</body>
+</html>
